@@ -1,134 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <title>A&A Cheesesteak Co.</title>
 
 <!-- FONTS -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Oswald:wght@400;600&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Oswald:wght@400;600&family=Montserrat:wght@300;500&display=swap" rel="stylesheet" />
 
 <!-- STRIPE -->
 <script async src="https://js.stripe.com/v3/buy-button.js"></script>
 
 <style>
-body {
-  margin: 0;
-  background: linear-gradient(180deg, #3b1f1f, #5a1e1e);
-  color: #fff;
-  font-family: 'Montserrat', sans-serif;
-}
+  :root{
+    --bg1:#3b1f1f;
+    --bg2:#5a1e1e;
+    --card:#2b1515;
+    --footer:#1a0d0d;
+    --accent:#f5d27a;
+  }
 
-/* HEADER */
-header {
-  text-align: center;
-  padding: 40px 20px;
-}
+  body {
+    margin: 0;
+    background: linear-gradient(180deg, var(--bg1), var(--bg2));
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+  }
 
-.logo {
-  width: 300px; /* slightly smaller */
-}
+  /* HEADER */
+  header {
+    text-align: center;
+    padding: 40px 20px;
+  }
 
-.tagline {
-  font-family: 'Playfair Display', serif;
-  font-size: 26px;
-  color: #f5d27a;
-  margin-top: 15px;
-  letter-spacing: 2px;
-}
+  .logo {
+    width: 260px; /* slightly smaller */
+    height: auto;
+  }
 
-/* SECTION */
-section {
-  max-width: 1100px;
-  margin: auto;
-  padding: 30px 20px;
-}
+  .tagline {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: var(--accent);
+    margin-top: 15px;
+    letter-spacing: 2px;
+  }
 
-/* MENU IMAGE */
-.menu-img {
-  width: 90%;
-  display: block;
-  margin: 0 auto 40px;
-  border-radius: 12px;
-}
+  /* SECTION */
+  section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 30px 20px;
+  }
 
-/* GRID */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
-}
+  /* MENU IMAGE (reduced size) */
+  .menu-img {
+    width: 60%;
+    max-width: 700px;
+    display: block;
+    margin: 0 auto 40px;
+    border-radius: 12px;
+  }
 
-/* CARD */
-.card {
-  background: #2b1515;
-  border-radius: 12px;
-  padding: 18px;
-  text-align: center;
-  box-shadow: 0 0 15px rgba(0,0,0,0.6);
-}
+  /* GRID */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+  }
 
-.card img {
-  width: 100%;
-  border-radius: 10px;
-}
+  /* CARD */
+  .card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 18px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0,0,0,0.6);
+  }
 
-h2 {
-  font-family: 'Oswald', sans-serif;
-  margin: 10px 0;
-}
+  .card img {
+    width: 100%;
+    border-radius: 10px;
+    display:block;
+    height: auto;
+  }
 
-.price {
-  color: #f5d27a;
-  font-size: 18px;
-  margin: 8px 0;
-}
+  h2 {
+    font-family: 'Oswald', sans-serif;
+    margin: 10px 0;
+    font-size: 1.2rem;
+  }
 
-stripe-buy-button {
-  display: block;
-  margin-top: 12px;
-}
+  .price {
+    color: var(--accent);
+    font-size: 18px;
+    margin: 8px 0;
+  }
 
-/* MAPS */
-.maps {
-  margin-top: 40px;
-}
+  stripe-buy-button {
+    display: block;
+    margin-top: 12px;
+  }
 
-.map-title {
-  text-align: center;
-  font-family: 'Oswald', sans-serif;
-  margin-bottom: 10px;
-}
+  /* MAPS */
+  .maps {
+    margin-top: 40px;
+  }
 
-iframe {
-  width: 100%;
-  height: 250px;
-  border: none;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
+  .map-title {
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 10px;
+  }
 
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 25px;
-  background: #1a0d0d;
-  color: #aaa;
-}
+  iframe {
+    width: 100%;
+    height: 250px;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 25px;
+    background: var(--footer);
+    color: #aaa;
+  }
+
+  /* Accessibility */
+  img { object-fit: cover; }
 </style>
 </head>
 
 <body>
 
 <header>
-  <img src="./assets/img/logo1.png" class="logo" alt="Logo">
+  <img src="./assets/img/logo1.png" class="logo" alt="A&A Cheesesteak Co. logo" />
 
   <!-- CURVED TAGLINE -->
   <div style="display:flex; justify-content:center; margin-top:15px;">
-    <svg width="500" height="120" viewBox="0 0 500 120">
+    <svg width="500" height="120" viewBox="0 0 500 120" aria-hidden="true" focusable="false">
       <path id="curve" d="M 50 100 Q 250 10 450 100" fill="transparent"/>
-      
       <text fill="#f5d27a" font-size="22" font-family="Playfair Display" letter-spacing="2">
         <textPath href="#curve" startOffset="50%" text-anchor="middle">
           Real Deal Authentic • Philly Roots • No Shortcuts
@@ -140,13 +155,13 @@ footer {
 
 <section>
 
-  <img src="./assets/img/menu1.png" class="menu-img" alt="Menu">
+  <img src="./assets/img/menu1.png" class="menu-img" alt="A&A Cheesesteak Co. menu" />
 
   <div class="grid">
 
     <!-- STANDARD -->
     <div class="card">
-      <img src="./assets/img/hoagie1.jpg">
+      <img src="./assets/img/hoagie1.jpg" alt="Standard Cheesesteak" />
       <h2>Standard Cheesesteak</h2>
       <div class="price">$12.99</div>
       <p>Ribeye • Onions • Provolone • Beef Tallow</p>
@@ -159,7 +174,7 @@ footer {
 
     <!-- ITALIAN -->
     <div class="card">
-      <img src="./assets/img/hoagie2.jpg">
+      <img src="./assets/img/hoagie2.jpg" alt="Italian Style Cheesesteak" />
       <h2>Italian Style Cheesesteak</h2>
       <div class="price">$14.99</div>
       <p>Marinara • Mozzarella • Provolone • Parmesan • Pepperoni</p>
@@ -172,7 +187,7 @@ footer {
 
     <!-- HOAGIE -->
     <div class="card">
-      <img src="./assets/img/hoagie3.jpg">
+      <img src="./assets/img/hoagie3.jpg" alt="Hoagie Style Cheesesteak" />
       <h2>Hoagie Style Cheesesteak</h2>
       <div class="price">$14.99</div>
       <p>Lettuce • Spinach • Tomatoes • Olives • Dressing</p>
@@ -185,23 +200,27 @@ footer {
 
     <!-- FRIES -->
     <div class="card">
-      <img src="./assets/img/hoagie4.jpg">
+      <img src="./assets/img/hoagie4.jpg" alt="Steak Fries" />
       <h2>Steak Fries</h2>
       <div class="price">$4.99</div>
 
+      <!-- Ensured unique buy-button-id and publishable-key present -->
       <stripe-buy-button
-        buy-button-id="buy_btn_1TJ9SkBMYjj5IrfpE83tPYpp">
+        buy-button-id="buy_btn_steak_fries_01"
+        publishable-key="pk_live_51TJ5XjBMYjj5IrfpxbGWRDpTvnReZ1nRWkLaGFX7FxM78iIBgyx68fyYJTVkHohY1VelmnppNTk0X9oyPfrPuPCW003RmCjV4f">
       </stripe-buy-button>
     </div>
 
     <!-- MAC -->
     <div class="card">
-      <img src="./assets/img/hoagie5.jpg">
-      <h2>Mac & Cheese</h2>
+      <img src="./assets/img/hoagie5.jpg" alt="Mac and Cheese" />
+      <h2>Mac &amp; Cheese</h2>
       <div class="price">$5.49</div>
 
+      <!-- Ensured unique buy-button-id and publishable-key present -->
       <stripe-buy-button
-        buy-button-id="buy_btn_1TJ9SkBMYjj5IrfpE83tPYpp">
+        buy-button-id="buy_btn_mac_cheese_01"
+        publishable-key="pk_live_51TJ5XjBMYjj5IrfpxbGWRDpTvnReZ1nRWkLaGFX7FxM78iIBgyx68fyYJTVkHohY1VelmnppNTk0X9oyPfrPuPCW003RmCjV4f">
       </stripe-buy-button>
     </div>
 
@@ -211,17 +230,17 @@ footer {
   <div class="maps">
 
     <div class="map-title">📍 Ogden, Utah</div>
-    <iframe src="https://www.google.com/maps?q=Ogden,Utah&output=embed"></iframe>
+    <iframe title="Ogden, Utah map" src="https://www.google.com/maps?q=Ogden,Utah&output=embed"></iframe>
 
     <div class="map-title">📍 Philadelphia, Pennsylvania</div>
-    <iframe src="https://www.google.com/maps?q=Philadelphia,PA&output=embed"></iframe>
+    <iframe title="Philadelphia, Pennsylvania map" src="https://www.google.com/maps?q=Philadelphia,PA&output=embed"></iframe>
 
   </div>
 
 </section>
 
 <footer>
-  © 2026 A&A Cheesesteak Co. • Built Different
+  © 2026 A&amp;A Cheesesteak Co. • Built Different
 </footer>
 
 </body>
