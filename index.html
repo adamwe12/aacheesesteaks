@@ -9,7 +9,7 @@
 <!-- FONTS -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Oswald:wght@400;600&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
-<!-- STRIPE (LOAD ONCE) -->
+<!-- STRIPE -->
 <script async src="https://js.stripe.com/v3/buy-button.js"></script>
 
 <style>
@@ -20,7 +20,6 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
-/* HEADER */
 header {
   text-align: center;
   padding: 40px 20px;
@@ -30,14 +29,12 @@ header {
   width: 300px;
 }
 
-/* CURVED TAGLINE */
 .tagline-wrap {
   display: flex;
   justify-content: center;
   margin-top: 10px;
 }
 
-/* BLACK OUTLINE EFFECT */
 .tagline-text {
   fill: #f5d27a;
   stroke: #000;
@@ -47,29 +44,25 @@ header {
   letter-spacing: 2px;
 }
 
-/* SECTION */
 section {
   max-width: 1100px;
   margin: auto;
   padding: 30px 20px;
 }
 
-/* MENU IMAGE (SMALLER) */
 .menu-img {
-  width: 75%;
+  width: 70%;
   display: block;
   margin: 0 auto 40px;
   border-radius: 12px;
 }
 
-/* GRID */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 25px;
 }
 
-/* CARD */
 .card {
   background: #2b1515;
   border-radius: 12px;
@@ -94,13 +87,11 @@ h2 {
   margin: 8px 0;
 }
 
-/* STRIPE */
 stripe-buy-button {
   display: block;
   margin-top: 12px;
 }
 
-/* MAPS */
 .maps {
   margin-top: 40px;
 }
@@ -119,7 +110,6 @@ iframe {
   margin-bottom: 20px;
 }
 
-/* FOOTER */
 footer {
   text-align: center;
   padding: 25px;
@@ -133,13 +123,11 @@ footer {
 
 <header>
 
-  <!-- LOGO -->
   <img src="./assets/img/logo1.png" class="logo" alt="Logo">
 
-  
   <div class="tagline-wrap">
     <svg width="500" height="120" viewBox="0 0 500 120">
-      <path d="M 50 100 Q 250 20 450 100" fill="transparent"/>
+      <path id="curve" d="M 50 100 Q 250 20 450 100" fill="transparent"/>
       
       <text class="tagline-text">
         <textPath href="#curve" startOffset="50%" text-anchor="middle">
@@ -153,74 +141,52 @@ footer {
 
 <section>
 
-  <!-- MENU IMAGE -->
   <img src="./assets/img/menu1.png" class="menu-img" alt="Menu">
 
   <div class="grid">
 
-    <!-- STANDARD -->
     <div class="card">
       <img src="./assets/img/hoagie1.jpg">
       <h2>Standard Cheesesteak</h2>
       <div class="price">$12.99</div>
-
-      <stripe-buy-button
-        buy-button-id="buy_btn_1TJ9SkBMYjj5IrfpE83tPYpp"
-        publishable-key="pk_live_51TJ5XjBMYjj5IrfpxbGWRDpTvnReZ1nRWkLaGFX7FxM78iIBgyx68fyYJTVkHohY1VelmnppNTk0X9oyPfrPuPCW003RmCjV4f">
-      </stripe-buy-button>
+      <stripe-buy-button buy-button-id="buy_btn_1TJ9SkBMYjj5IrfpE83tPYpp"
+      publishable-key="pk_live_51TJ5XjBMYjj5IrfpxbGWRDpTvnReZ1nRWkLaGFX7FxM78iIBgyx68fyYJTVkHohY1VelmnppNTk0X9oyPfrPuPCW003RmCjV4f"></stripe-buy-button>
     </div>
 
-    <!-- ITALIAN -->
     <div class="card">
       <img src="./assets/img/hoagie2.jpg">
       <h2>Italian Style Cheesesteak</h2>
       <div class="price">$14.99</div>
-
-      <stripe-buy-button
-        buy-button-id="buy_btn_1TJA3aBMYjj5IrfpOqRtHByF"
-        publishable-key="pk_live_51TJ5XjBMYjj5IrfpxbGWRDpTvnReZ1nRWkLaGFX7FxM78iIBgyx68fyYJTVkHohY1VelmnppNTk0X9oyPfrPuPCW003RmCjV4f">
-      </stripe-buy-button>
+      <stripe-buy-button buy-button-id="buy_btn_1TJA3aBMYjj5IrfpOqRtHByF"
+      publishable-key="pk_live_51TJ5XjBMYjj5IrfpxbGWRDpTvnReZ1nRWkLaGFX7FxM78iIBgyx68fyYJTVkHohY1VelmnppNTk0X9oyPfrPuPCW003RmCjV4f"></stripe-buy-button>
     </div>
 
-    <!-- HOAGIE -->
     <div class="card">
       <img src="./assets/img/hoagie3.jpg">
       <h2>Hoagie Style Cheesesteak</h2>
       <div class="price">$14.99</div>
-
-      <stripe-buy-button
-        buy-button-id="buy_btn_1TJADUBMYjj5IrfpBuTxysiw"
-        publishable-key="pk_live_51TJ5XjBMYjj5IrfpxbGWRDpTvnReZ1nRWkLaGFX7FxM78iIBgyx68fyYJTVkHohY1VelmnppNTk0X9oyPfrPuPCW003RmCjV4f">
-      </stripe-buy-button>
+      <stripe-buy-button buy-button-id="buy_btn_1TJADUBMYjj5IrfpBuTxysiw"
+      publishable-key="pk_live_51TJ5XjBMYjj5IrfpxbGWRDpTvnReZ1nRWkLaGFX7FxM78iIBgyx68fyYJTVkHohY1VelmnppNTk0X9oyPfrPuPCW003RmCjV4f"></stripe-buy-button>
     </div>
 
-    <!-- FRIES -->
     <div class="card">
       <img src="./assets/img/hoagie4.jpg">
       <h2>Steak Fries</h2>
       <div class="price">$4.99</div>
-
-      <stripe-buy-button
-        buy-button-id="buy_btn_1TJ9SkBMYjj5IrfpE83tPYpp"
-        publishable-key="pk_live_51TJ5XjBMYjj5IrfpxbGWRDpTvnReZ1nRWkLaGFX7FxM78iIBgyx68fyYJTVkHohY1VelmnppNTk0X9oyPfrPuPCW003RmCjV4f">
-      </stripe-buy-button>
+      <stripe-buy-button buy-button-id="buy_btn_1TJ9SkBMYjj5IrfpE83tPYpp"
+      publishable-key="pk_live_51TJ5XjBMYjj5IrfpxbGWRDpTvnReZ1nRWkLaGFX7FxM78iIBgyx68fyYJTVkHohY1VelmnppNTk0X9oyPfrPuPCW003RmCjV4f"></stripe-buy-button>
     </div>
 
-    <!-- MAC -->
     <div class="card">
       <img src="./assets/img/hoagie5.jpg">
       <h2>Mac & Cheese</h2>
-      <div class="price">$5.49</div>
-
-      <stripe-buy-button
-        buy-button-id="buy_btn_1TJ9SkBMYjj5IrfpE83tPYpp"
-        publishable-key="pk_live_51TJ5XjBMYjj5IrfpxbGWRDpTvnReZ1nRWkLaGFX7FxM78iIBgyx68fyYJTVkHohY1VelmnppNTk0X9oyPfrPuPCW003RmCjV4f">
-      </stripe-buy-button>
+      <div class="price">$4.99</div>
+      <stripe-buy-button buy-button-id="buy_btn_1TJ9SkBMYjj5IrfpE83tPYpp"
+      publishable-key="pk_live_51TJ5XjBMYjj5IrfpxbGWRDpTvnReZ1nRWkLaGFX7FxM78iIBgyx68fyYJTVkHohY1VelmnppNTk0X9oyPfrPuPCW003RmCjV4f"></stripe-buy-button>
     </div>
 
   </div>
 
-  <!-- MAPS -->
   <div class="maps">
 
     <div class="map-title">📍 Ogden, Utah</div>
