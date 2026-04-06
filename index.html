@@ -7,7 +7,7 @@
 <title>A&A Cheesesteak Co.</title>
 
 <!-- FONTS -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Oswald:wght@400;600&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Oswald:wght@400;600&family=Montserrat:wght@300;500&family=Cinzel:wght@500;700&display=swap" rel="stylesheet">
 
 <!-- STRIPE (LOAD ONCE) -->
 <script async src="https://js.stripe.com/v3/buy-button.js"></script>
@@ -30,21 +30,19 @@ header {
   width: 300px;
 }
 
-/* CURVED TAGLINE */
-.tagline-wrap {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-/* BLACK OUTLINE EFFECT */
-.tagline-text {
-  fill: #f5d27a;
-  stroke: #000;
-  stroke-width: 1.5;
-  font-size: 22px;
-  font-family: 'Playfair Display', serif;
+/* STRAIGHT TAGLINE (ART DECO STYLE) */
+.tagline {
+  margin-top: 15px;
+  font-family: 'Cinzel', serif;
+  font-size: 20px;
   letter-spacing: 2px;
+  color: #f5d27a;
+  text-transform: uppercase;
+  text-shadow: 
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
 }
 
 /* SECTION */
@@ -54,7 +52,7 @@ section {
   padding: 30px 20px;
 }
 
-/* MENU IMAGE (SMALLER) */
+/* MENU IMAGE */
 .menu-img {
   width: 75%;
   display: block;
@@ -136,17 +134,9 @@ footer {
   <!-- LOGO -->
   <img src="./assets/img/logo1.png" class="logo" alt="Logo">
 
-  <!-- CURVED TAGLINE WITH BLACK OUTLINE -->
-  <div class="tagline-wrap">
-    <svg width="500" height="120" viewBox="0 0 500 120">
-      <path id="curve" d="M 50 100 Q 250 20 450 100" fill="transparent"/>
-      
-      <text class="tagline-text">
-        <textPath href="#curve" startOffset="50%" text-anchor="middle">
-          Real Deal Authentic • Philly Roots • No Shortcuts
-        </textPath>
-      </text>
-    </svg>
+  <!-- STRAIGHT TAGLINE -->
+  <div class="tagline">
+    Real Deal Authentic • Philly Roots • No Shortcuts
   </div>
 
 </header>
@@ -194,26 +184,26 @@ footer {
       </stripe-buy-button>
     </div>
 
-    <!-- FRIES -->
+    <!-- FRIES (FIXED PRICE + MATCHED STRIPE PRODUCT) -->
     <div class="card">
       <img src="./assets/img/hoagie4.jpg">
       <h2>Steak Fries</h2>
       <div class="price">$4.99</div>
 
       <stripe-buy-button
-        buy-button-id="buy_btn_1TJ9SkBMYjj5IrfpE83tPYpp"
+        buy-button-id="buy_btn_1TJADUBMYjj5IrfpBuTxysiw"
         publishable-key="pk_live_51TJ5XjBMYjj5IrfpxbGWRDpTvnReZ1nRWkLaGFX7FxM78iIBgyx68fyYJTVkHohY1VelmnppNTk0X9oyPfrPuPCW003RmCjV4f">
       </stripe-buy-button>
     </div>
 
-    <!-- MAC -->
+    <!-- MAC (FIXED PRICE + MATCHED STRIPE PRODUCT) -->
     <div class="card">
       <img src="./assets/img/hoagie5.jpg">
       <h2>Mac & Cheese</h2>
       <div class="price">$4.99</div>
 
       <stripe-buy-button
-        buy-button-id="buy_btn_1TJ9SkBMYjj5IrfpE83tPYpp"
+        buy-button-id="buy_btn_1TJADUBMYjj5IrfpBuTxysiw"
         publishable-key="pk_live_51TJ5XjBMYjj5IrfpxbGWRDpTvnReZ1nRWkLaGFX7FxM78iIBgyx68fyYJTVkHohY1VelmnppNTk0X9oyPfrPuPCW003RmCjV4f">
       </stripe-buy-button>
     </div>
