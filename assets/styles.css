@@ -1,1 +1,82 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #faf8f4;
+  color: #222;
+}
+
+.header {
+  background: #800000;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header nav a {
+  color: #fff;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.logo { height: 70px; }
+
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  background: #fff;
+}
+
+.hero-logo { width: 240px; }
+
+.btn {
+  display: inline-block;
+  background: #c62828;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 18px;
+  text-decoration: none;
+  margin-top: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.gallery .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  padding: 20px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.menu-section, .order-section, .contact-section {
+  padding: 30px;
+}
+
+.menu-block, .order-item {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #ddd;
+}
 
