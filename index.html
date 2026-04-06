@@ -3,204 +3,198 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A&A Cheesesteak Co.</title>
-<link rel="stylesheet" href="assets/styles.css">
 
+<title>A&A Cheesesteak Co.</title>
+
+<!-- FONTS (Urban + Fancy) -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Oswald:wght@400;600&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+
+<!-- STRIPE -->
 <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+
+<style>
+body {
+  margin: 0;
+  background: #0d0d0d;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* HEADER */
+header {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.logo {
+  width: 420px;
+  max-width: 95%;
+}
+
+.tagline {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  color: #d4af37;
+  margin-top: 20px;
+  letter-spacing: 2px;
+}
+
+/* SECTION */
+section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+/* MENU IMAGE */
+.menu-img {
+  width: 100%;
+  border-radius: 15px;
+  margin-bottom: 50px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* CARD */
+.card {
+  background: #1a1a1a;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0,0,0,0.6);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+h2 {
+  font-family: 'Oswald', sans-serif;
+  margin-top: 15px;
+}
+
+.price {
+  color: #d4af37;
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+/* STRIPE */
+stripe-buy-button {
+  display: block;
+  margin-top: 15px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 30px;
+  background: #000;
+  color: #888;
+}
+</style>
 </head>
 
 <body>
 
-<header class="header">
+<header>
+  <!-- BIG LOGO -->
   <img src="./assets/img/logo1.png" class="logo" alt="Logo">
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="menu.html">Menu</a>
-    <a href="order.html">Order</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+  <!-- URBAN FANCY TAGLINE -->
+  <div class="tagline">
+    Real Deal Authentic • Philly Roots • No Shortcuts
+  </div>
 </header>
 
-<section class="hero">
-  <img src="./assets/img/logo2.png" class="hero-logo" alt="Logo">
-  <h1>Real Deal Authentic • Philly Roots • No Shortcuts</h1>
-  <p>The best cheesesteak experience outside Philly.</p>
+<section>
 
-  <!-- STRIPE BUTTON -->
-  <stripe-buy-button
-    buy-button-id="buy_btn_1TJ9SkBMYjj5IrfpE83tPYpp"
-    publishable-key="pk_live_51TJ5XjBMYjj5IrfpxbGWRDpTvnReZ1nRWkLaGFX7FxM78iIBgyx68fyYJTVkHohY1VelmnppNTk0X9oyPfrPuPCW003RmCjV4f">
-  </stripe-buy-button>
+  <!-- MENU IMAGE -->
+  <img src="./assets/img/menu1.png" class="menu-img" alt="Menu">
 
-</section>
-
-<section class="gallery">
-  <h2>Our Cheesesteaks</h2>
   <div class="grid">
-    <img src="./assets/img/hoagie1.jpg">
-    <img src="./assets/img/hoagie2.jpg">
-    <img src="./assets/img/hoagie3.jpg">
-    <img src="./assets/img/hoagie4.jpg">
-    <img src="./assets/img/hoagie5.jpg">
+
+    <!-- STANDARD -->
+    <div class="card">
+      <img src="./assets/img/hoagie1.jpg">
+      <h2>Standard Cheesesteak</h2>
+      <div class="price">$12.99</div>
+      <p>Ribeye • Caramelized Onions • Provolone • Beef Tallow</p>
+
+      <!-- STRIPE BUTTON -->
+      <stripe-buy-button
+        buy-button-id="buy_btn_1TJ9SkBMYjj5IrfpE83tPYpp"
+        publishable-key="pk_live_51TJ5XjBMYjj5IrfpxbGWRDpTvnReZ1nRWkLaGFX7FxM78iIBgyx68fyYJTVkHohY1VelmnppNTk0X9oyPfrPuPCW003RmCjV4f">
+      </stripe-buy-button>
+    </div>
+
+    <!-- ITALIAN -->
+    <div class="card">
+      <img src="./assets/img/hoagie2.jpg">
+      <h2>Italian Style</h2>
+      <div class="price">$14.99</div>
+      <p>Marinara • Mozzarella • Provolone • Parmesan • Pepperoni</p>
+
+      <stripe-buy-button
+        buy-button-id="buy_btn_1TJA3aBMYjj5IrfpOqRtHByF"
+        publishable-key="pk_live_51TJ5XjBMYjj5IrfpxbGWRDpTvnReZ1nRWkLaGFX7FxM78iIBgyx68fyYJTVkHohY1VelmnppNTk0X9oyPfrPuPCW003RmCjV4f">
+      </stripe-buy-button>
+    </div>
+
+    <!-- HOAGIE STYLE -->
+    <div class="card">
+      <img src="./assets/img/hoagie3.jpg">
+      <h2>Hoagie Style</h2>
+      <div class="price">$14.99</div>
+      <p>Lettuce • Spinach • Tomatoes • Olives • Choice Dressing</p>
+
+      <stripe-buy-button
+        buy-button-id="buy_btn_1TJADUBMYjj5IrfpBuTxysiw"
+        publishable-key="pk_live_51TJ5XjBMYjj5IrfpxbGWRDpTvnReZ1nRWkLaGFX7FxM78iIBgyx68fyYJTVkHohY1VelmnppNTk0X9oyPfrPuPCW003RmCjV4f">
+      </stripe-buy-button>
+    </div>
+
+    <!-- FRIES -->
+    <div class="card">
+      <img src="./assets/img/hoagie4.jpg">
+      <h2>Steak Fries</h2>
+      <div class="price">$4.99</div>
+
+      <stripe-buy-button
+        buy-button-id="buy_btn_1TJ9SkBMYjj5IrfpE83tPYpp"
+        publishable-key="pk_live_51TJ5XjBMYjj5IrfpxbGWRDpTvnReZ1nRWkLaGFX7FxM78iIBgyx68fyYJTVkHohY1VelmnppNTk0X9oyPfrPuPCW003RmCjV4f">
+      </stripe-buy-button>
+    </div>
+
+    <!-- MAC -->
+    <div class="card">
+      <img src="./assets/img/hoagie5.jpg">
+      <h2>Mac & Cheese</h2>
+      <div class="price">$5.49</div>
+
+      <stripe-buy-button
+        buy-button-id="buy_btn_1TJ9SkBMYjj5IrfpE83tPYpp"
+        publishable-key="pk_live_51TJ5XjBMYjj5IrfpxbGWRDpTvnReZ1nRWkLaGFX7FxM78iIBgyx68fyYJTVkHohY1VelmnppNTk0X9oyPfrPuPCW003RmCjV4f">
+      </stripe-buy-button>
+    </div>
+
   </div>
-</section>
-
-<footer>
-  <p>© 2026 A&A Cheesesteak Company</p>
-</footer>
-
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Menu | A&A Cheesesteak Co.</title>
-<link rel="stylesheet" href="assets/styles.css">
-
-<script async src="https://js.stripe.com/v3/buy-button.js"></script>
-</head>
-
-<body>
-
-<header class="header">
-  <img src="./assets/img/logo1.png" class="logo">
-
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="menu.html" class="active">Menu</a>
-    <a href="order.html">Order</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
-
-<section class="menu-section">
-  <h1>Our Menu</h1>
-
-  <div class="menu-block">
-    <h2>Standard Cheesesteak — $12.99</h2>
-    <p>Ribeye • Onions • Provolone</p>
-  </div>
-
-  <div class="menu-block">
-    <h2>Specialty Cheesesteak — $14.99</h2>
-    <p>Italian or Hoagie Style</p>
-  </div>
-
-  <div class="menu-block">
-    <h2>Sides</h2>
-    <p>Fries • Mac & Cheese • Coleslaw</p>
-  </div>
-
-  <!-- STRIPE BUTTON -->
-  <stripe-buy-button
-    buy-button-id="buy_btn_1TJ9SkBMYjj5IrfpE83tPYpp"
-    publishable-key="pk_live_51TJ5XjBMYjj5IrfpxbGWRDpTvnReZ1nRWkLaGFX7FxM78iIBgyx68fyYJTVkHohY1VelmnppNTk0X9oyPfrPuPCW003RmCjV4f">
-  </stripe-buy-button>
-
-</section>
-
-<footer>
-  <p>© 2026 A&A Cheesesteak Company</p>
-</footer>
-
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Order | A&A Cheesesteak Co.</title>
-<link rel="stylesheet" href="assets/styles.css">
-
-<script async src="https://js.stripe.com/v3/buy-button.js"></script>
-</head>
-
-<body>
-
-<header class="header">
-  <img src="./assets/img/logo1.png" class="logo">
-
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="menu.html">Menu</a>
-    <a href="order.html" class="active">Order</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
-
-<section class="order-section">
-  <h1>Order Online</h1>
-
-  <p>Click below to place your order securely.</p>
-
-  <!-- STRIPE BUTTON -->
-  <stripe-buy-button
-    buy-button-id="buy_btn_1TJ9SkBMYjj5IrfpE83tPYpp"
-    publishable-key="pk_live_51TJ5XjBMYjj5IrfpxbGWRDpTvnReZ1nRWkLaGFX7FxM78iIBgyx68fyYJTVkHohY1VelmnppNTk0X9oyPfrPuPCW003RmCjV4f">
-  </stripe-buy-button>
 
 </section>
 
 <footer>
-  <p>© 2026 A&A Cheesesteak Company</p>
-</footer>
-
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact | A&A Cheesesteak Co.</title>
-<link rel="stylesheet" href="assets/styles.css">
-
-<script async src="https://js.stripe.com/v3/buy-button.js"></script>
-</head>
-
-<body>
-
-<header class="header">
-  <img src="./assets/img/logo1.png" class="logo">
-
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="menu.html">Menu</a>
-    <a href="order.html">Order</a>
-    <a href="contact.html" class="active">Contact</a>
-  </nav>
-</header>
-
-<section class="contact-section">
-  <h1>Contact Us</h1>
-  <p>📞 (773) 677-0284</p>
-  <p>📧 support@aacheesesteaks.com</p>
-
-  <!-- STRIPE BUTTON -->
-  <stripe-buy-button
-    buy-button-id="buy_btn_1TJ9SkBMYjj5IrfpE83tPYpp"
-    publishable-key="pk_live_51TJ5XjBMYjj5IrfpxbGWRDpTvnReZ1nRWkLaGFX7FxM78iIBgyx68fyYJTVkHohY1VelmnppNTk0X9oyPfrPuPCW003RmCjV4f">
-  </stripe-buy-button>
-
-  <iframe
-    width="100%"
-    height="300"
-    style="border:0"
-    loading="lazy"
-    src="https://www.google.com/maps?q=Ogden,Utah&output=embed">
-  </iframe>
-
-</section>
-
-<footer>
-  <p>© 2026 A&A Cheesesteak Company</p>
+  © 2026 A&A Cheesesteak Co. • Built Different • Ogden, Utah
 </footer>
 
 </body>
