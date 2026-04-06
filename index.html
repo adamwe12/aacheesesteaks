@@ -7,15 +7,15 @@
 <title>A&A Cheesesteak Co.</title>
 
 <!-- FONTS -->
-<link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Oswald:wght@400;600&family=Montserrat:wght@300;500&display=swap)" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Oswald:wght@400;600&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
 <!-- STRIPE -->
-<script async src="[js.stripe.com](https://js.stripe.com/v3/buy-button.js)"></script>
+<script async src="https://js.stripe.com/v3/buy-button.js"></script>
 
 <style>
 body {
   margin: 0;
-  background-color: #5A1E1E; /* Changed to brown */
+  background: linear-gradient(180deg, #3b1f1f, #5a1e1e);
   color: #fff;
   font-family: 'Montserrat', sans-serif;
 }
@@ -27,18 +27,14 @@ header {
 }
 
 .logo {
-  width: 250px; /* slightly smaller */
+  width: 300px;
 }
 
-.tagline {
-  font-family: 'Playfair Display', serif;
-  font-size: 26px;
-  color: #f5d27a;
-  margin-top: 15px;
-  letter-spacing: 2px;
-  /* Mimic logo tagline */
-  text-transform: uppercase;
-  font-weight: 700;
+/* CURVED TAGLINE */
+.tagline-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
 }
 
 /* SECTION */
@@ -50,7 +46,7 @@ section {
 
 /* MENU IMAGE */
 .menu-img {
-  width: 80%; /* slightly smaller */
+  width: 90%;
   display: block;
   margin: 0 auto 40px;
   border-radius: 12px;
@@ -102,12 +98,11 @@ stripe-buy-button {
   text-align: center;
   font-family: 'Oswald', sans-serif;
   margin-bottom: 10px;
-  font-size: 24px;
 }
 
 iframe {
   width: 100%;
-  height: 300px; /* slightly taller for better viewing */
+  height: 250px;
   border: none;
   border-radius: 10px;
   margin-bottom: 20px;
@@ -126,15 +121,28 @@ footer {
 <body>
 
 <header>
+
+  <!-- LOGO -->
   <img src="./assets/img/logo1.png" class="logo" alt="Logo">
 
-  <div class="tagline">
-    The Real Deal • Authentic • No Shortcuts
+  <!-- CURVED TAGLINE -->
+  <div class="tagline-wrap">
+    <svg width="500" height="120" viewBox="0 0 500 120">
+      <path id="curve" d="M 50 100 Q 250 20 450 100" fill="transparent"/>
+      
+      <text fill="#f5d27a" font-size="22" font-family="Playfair Display" letter-spacing="2">
+        <textPath href="#curve" startOffset="50%" text-anchor="middle">
+          Real Deal Authentic • Philly Roots • No Shortcuts
+        </textPath>
+      </text>
+    </svg>
   </div>
+
 </header>
 
 <section>
 
+  <!-- MENU IMAGE -->
   <img src="./assets/img/menu1.png" class="menu-img" alt="Menu">
 
   <div class="grid">
@@ -146,10 +154,15 @@ footer {
       <div class="price">$12.99</div>
       <p>Ribeye • Onions • Provolone • Beef Tallow</p>
 
-      <stripe-buy-button
-        buy-button-id="buy_btn_1TJ9SkBMYjj5IrfpE83tPYpp"
-        publishable-key="pk_live_51TJ5XjBMYjj5IrfpxbGWRDpTvnReZ1nRWkLaGFX7FxM78iIBgyx68fyYJTVkHohY1VelmnppNTk0X9oyPfrPuPCW003RmCjV4f">
-      </stripe-buy-button>
+      <script async
+  src="https://js.stripe.com/v3/buy-button.js">
+</script>
+
+<stripe-buy-button
+  buy-button-id="buy_btn_1TJ9SkBMYjj5IrfpE83tPYpp"
+  publishable-key="pk_live_51TJ5XjBMYjj5IrfpxbGWRDpTvnReZ1nRWkLaGFX7FxM78iIBgyx68fyYJTVkHohY1VelmnppNTk0X9oyPfrPuPCW003RmCjV4f"
+>
+</stripe-buy-button>
     </div>
 
     <!-- ITALIAN -->
@@ -159,10 +172,15 @@ footer {
       <div class="price">$14.99</div>
       <p>Marinara • Mozzarella • Provolone • Parmesan • Pepperoni</p>
 
-      <stripe-buy-button
-        buy-button-id="buy_btn_1TJA3aBMYjj5IrfpOqRtHByF"
-        publishable-key="pk_live_51TJ5XjBMYjj5IrfpxbGWRDpTvnReZ1nRWkLaGFX7FxM78iIBgyx68fyYJTVkHohY1VelmnppNTk0X9oyPfrPuPCW003RmCjV4f">
-      </stripe-buy-button>
+      <script async
+  src="https://js.stripe.com/v3/buy-button.js">
+</script>
+
+<stripe-buy-button
+  buy-button-id="buy_btn_1TJADUBMYjj5IrfpBuTxysiw"
+  publishable-key="pk_live_51TJ5XjBMYjj5IrfpxbGWRDpTvnReZ1nRWkLaGFX7FxM78iIBgyx68fyYJTVkHohY1VelmnppNTk0X9oyPfrPuPCW003RmCjV4f"
+>
+</stripe-buy-button>
     </div>
 
     <!-- HOAGIE -->
@@ -172,10 +190,15 @@ footer {
       <div class="price">$14.99</div>
       <p>Lettuce • Spinach • Tomatoes • Olives • Dressing</p>
 
-      <stripe-buy-button
-        buy-button-id="buy_btn_1TJADUBMYjj5IrfpBuTxysiw"
-        publishable-key="pk_live_51TJ5XjBMYjj5IrfpxbGWRDpTvnReZ1nRWkLaGFX7FxM78iIBgyx68fyYJTVkHohY1VelmnppNTk0X9oyPfrPuPCW003RmCjV4f">
-      </stripe-buy-button>
+      <script async
+  src="https://js.stripe.com/v3/buy-button.js">
+</script>
+
+<stripe-buy-button
+  buy-button-id="buy_btn_1TJADUBMYjj5IrfpBuTxysiw"
+  publishable-key="pk_live_51TJ5XjBMYjj5IrfpxbGWRDpTvnReZ1nRWkLaGFX7FxM78iIBgyx68fyYJTVkHohY1VelmnppNTk0X9oyPfrPuPCW003RmCjV4f"
+>
+</stripe-buy-button>
     </div>
 
     <!-- FRIES -->
@@ -184,20 +207,32 @@ footer {
       <h2>Steak Fries</h2>
       <div class="price">$4.99</div>
 
-      <stripe-buy-button
-        buy-button-id="buy_btn_1TJ9SkBMYjj5IrfpE83tPYpp">
-      </stripe-buy-button>
+     <script async
+  src="https://js.stripe.com/v3/buy-button.js">
+</script>
+
+<stripe-buy-button
+  buy-button-id="buy_btn_1TJA3aBMYjj5IrfpOqRtHByF"
+  publishable-key="pk_live_51TJ5XjBMYjj5IrfpxbGWRDpTvnReZ1nRWkLaGFX7FxM78iIBgyx68fyYJTVkHohY1VelmnppNTk0X9oyPfrPuPCW003RmCjV4f"
+>
+</stripe-buy-button>
     </div>
 
     <!-- MAC -->
     <div class="card">
       <img src="./assets/img/hoagie5.jpg">
       <h2>Mac & Cheese</h2>
-      <div class="price">$5.49</div>
+      <div class="price">$4.99</div>
 
-      <stripe-buy-button
-        buy-button-id="buy_btn_1TJ9SkBMYjj5IrfpE83tPYpp">
-      </stripe-buy-button>
+      <script async
+  src="https://js.stripe.com/v3/buy-button.js">
+</script>
+
+<stripe-buy-button
+  buy-button-id="buy_btn_1TJA3aBMYjj5IrfpOqRtHByF"
+  publishable-key="pk_live_51TJ5XjBMYjj5IrfpxbGWRDpTvnReZ1nRWkLaGFX7FxM78iIBgyx68fyYJTVkHohY1VelmnppNTk0X9oyPfrPuPCW003RmCjV4f"
+>
+</stripe-buy-button>
     </div>
 
   </div>
@@ -205,21 +240,19 @@ footer {
   <!-- MAPS -->
   <div class="maps">
 
-    <div class="map-title">📍 Ogden, UT</div>
-    <iframe src="[google.com](https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d194270.0766345638!2d-112.01255558931165!3d41.22919889417835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8753066d93699c27%3A0x7cee50e7a46c3b6d!2sOgden%2C%20UT!5e0!3m2!1sen!2sus!4v1701389882200!5m2!1sen!2sus)"></iframe>
+    <div class="map-title">📍 Ogden, Utah</div>
+    <iframe src="https://www.google.com/maps?q=Ogden,Utah&output=embed"></iframe>
 
-
-    <div class="map-title">📍 Philadelphia, PA</div>
-    <iframe src="[google.com](https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387538.9959955743!2d-75.31139458925484!3d40.0024982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6b7d8d21c33f2%3A0x1b4028565b9b9a71!2sPhiladelphia%2C%20PA!5e0!3m2!1sen!2sus!4v1701389809930!5m2!1sen!2sus)"></iframe>
+    <div class="map-title">📍 Philadelphia, Pennsylvania</div>
+    <iframe src="https://www.google.com/maps?q=Philadelphia,PA&output=embed"></iframe>
 
   </div>
 
 </section>
 
 <footer>
-  © 2026 A&A Cheesesteak Co. • Built Different
+  © 2026 A&A Cheesesteak Co. • Built With Love
 </footer>
 
 </body>
 </html>
-
