@@ -9,7 +9,7 @@
 <!-- FONTS -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Oswald:wght@400;600&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
-<!-- STRIPE -->
+<!-- STRIPE (LOAD ONCE) -->
 <script async src="https://js.stripe.com/v3/buy-button.js"></script>
 
 <style>
@@ -30,21 +30,21 @@ header {
   width: 300px;
 }
 
-/* TAGLINE (FIXED - NO SVG BUGS) */
-.tagline {
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
-  letter-spacing: 2px;
-  color: #f5d27a;
-  margin-top: 15px;
-  text-align: center;
+/* CURVED TAGLINE */
+.tagline-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
 
-  /* BLACK OUTLINE */
-  text-shadow:
-    -1px -1px 0 #000,
-     1px -1px 0 #000,
-    -1px  1px 0 #000,
-     1px  1px 0 #000;
+/* BLACK OUTLINE EFFECT */
+.tagline-text {
+  fill: #f5d27a;
+  stroke: #000;
+  stroke-width: 1.5;
+  font-size: 22px;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 2px;
 }
 
 /* SECTION */
@@ -54,9 +54,9 @@ section {
   padding: 30px 20px;
 }
 
-/* MENU IMAGE */
+/* MENU IMAGE (SMALLER) */
 .menu-img {
-  width: 70%;
+  width: 75%;
   display: block;
   margin: 0 auto 40px;
   border-radius: 12px;
@@ -94,7 +94,7 @@ h2 {
   margin: 8px 0;
 }
 
-/* STRIPE BUTTON */
+/* STRIPE */
 stripe-buy-button {
   display: block;
   margin-top: 12px;
@@ -108,7 +108,7 @@ stripe-buy-button {
 .map-title {
   text-align: center;
   font-family: 'Oswald', sans-serif;
-  margin: 10px 0;
+  margin-bottom: 10px;
 }
 
 iframe {
@@ -116,6 +116,7 @@ iframe {
   height: 250px;
   border: none;
   border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 /* FOOTER */
@@ -131,11 +132,23 @@ footer {
 <body>
 
 <header>
+
+  <!-- LOGO -->
   <img src="./assets/img/logo1.png" class="logo" alt="Logo">
 
-  <div class="tagline">
-    Real Deal Authentic • Philly Roots • No Shortcuts
+  
+  <div class="tagline-wrap">
+    <svg width="500" height="120" viewBox="0 0 500 120">
+      <path id="curve" d="M 50 100 Q 250 20 450 100" fill="transparent"/>
+      
+      <text class="tagline-text">
+        <textPath href=startOffset="50%" text-anchor="middle">
+          Real Deal Authentic • Philly Roots • No Shortcuts
+        </textPath>
+      </text>
+    </svg>
   </div>
+
 </header>
 
 <section>
@@ -147,7 +160,7 @@ footer {
 
     <!-- STANDARD -->
     <div class="card">
-      <img src="./assets/img/hoagie1.jpg" alt="">
+      <img src="./assets/img/hoagie1.jpg">
       <h2>Standard Cheesesteak</h2>
       <div class="price">$12.99</div>
 
@@ -159,7 +172,7 @@ footer {
 
     <!-- ITALIAN -->
     <div class="card">
-      <img src="./assets/img/hoagie2.jpg" alt="">
+      <img src="./assets/img/hoagie2.jpg">
       <h2>Italian Style Cheesesteak</h2>
       <div class="price">$14.99</div>
 
@@ -171,7 +184,7 @@ footer {
 
     <!-- HOAGIE -->
     <div class="card">
-      <img src="./assets/img/hoagie3.jpg" alt="">
+      <img src="./assets/img/hoagie3.jpg">
       <h2>Hoagie Style Cheesesteak</h2>
       <div class="price">$14.99</div>
 
@@ -183,11 +196,10 @@ footer {
 
     <!-- FRIES -->
     <div class="card">
-      <img src="./assets/img/hoagie4.jpg" alt="">
+      <img src="./assets/img/hoagie4.jpg">
       <h2>Steak Fries</h2>
       <div class="price">$4.99</div>
 
-      <!-- USING SAME BUTTON (ONLY IF SAME STRIPE PRODUCT) -->
       <stripe-buy-button
         buy-button-id="buy_btn_1TJ9SkBMYjj5IrfpE83tPYpp"
         publishable-key="pk_live_51TJ5XjBMYjj5IrfpxbGWRDpTvnReZ1nRWkLaGFX7FxM78iIBgyx68fyYJTVkHohY1VelmnppNTk0X9oyPfrPuPCW003RmCjV4f">
@@ -196,9 +208,9 @@ footer {
 
     <!-- MAC -->
     <div class="card">
-      <img src="./assets/img/hoagie5.jpg" alt="">
+      <img src="./assets/img/hoagie5.jpg">
       <h2>Mac & Cheese</h2>
-      <div class="price">$4.99</div>
+      <div class="price">$5.49</div>
 
       <stripe-buy-button
         buy-button-id="buy_btn_1TJ9SkBMYjj5IrfpE83tPYpp"
