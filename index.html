@@ -29,7 +29,7 @@
       overflow-x: hidden;
     }
 
-    /* FIXED WALLPAPER — NOW VISIBLE ON DESKTOP */
+    /* WALLPAPER FIX — NOW VISIBLE ON DESKTOP */
     body::before {
       content: "";
       position: fixed;
@@ -41,7 +41,7 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      opacity: 0.35; /* LOWERED so wallpaper is visible */
+      opacity: 0.38;
       filter: brightness(1.1) contrast(1.1) saturate(1.1);
     }
 
@@ -281,7 +281,7 @@
           <li>Provolone</li>
           <li>White American</li>
           <li>Sharp White Cheddar</li>
-          <li>Special Cheez Wiz</li>
+          <li>Spicy Cheez Whiz</li>
           <li>Gouda</li>
         </ul>
       </div>
@@ -313,7 +313,7 @@
         <h3 class="menu-card-title">Sides • $4.99</h3>
         <ul class="menu-list">
           <li>Mac & Cheese</li>
-          <li>Steak Fries</li>
+          <li>Seasoned Steak Fries</li>
           <li>Cole Slaw</li>
         </ul>
 
@@ -329,7 +329,7 @@
         </h2>
         <p style="color:var(--text-muted);">Delivery & Pickup Only • Secure Stripe Checkout</p>
 
-        <!-- LIVE STRIPE BUY BUTTON -->
+        <!-- LIVE STRIPE BUY BUTTON (NO TOTAL SHOWN) -->
         <script async src="https://js.stripe.com/v3/buy-button.js"></script>
         <stripe-buy-button
           buy-button-id="buy_btn_1TJW6qBMYjj5IrfpAK3KvOA0"
@@ -369,5 +369,3 @@
   </div>
 </body>
 </html>
-
-
