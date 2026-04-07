@@ -2,17 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>A&A Cheesesteak Co. | Real Philly in Ogden</title>
+  <title>A&A Cheesesteak Co. | Real Deal Authentic</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Art Deco Fonts -->
+  <!-- Art Deco / High-End Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
       --bg-dark: #050608;
+      --bg-deep: #0b0d12;
       --gold: #d4af37;
       --gold-soft: #f0d58a;
+      --cream: #f7f1e6;
+      --accent-red: #b33939;
+      --accent-blue: #1e90ff;
       --text-main: #f5f5f5;
       --text-muted: #c0c0c0;
       --card-bg: rgba(10, 10, 15, 0.92);
@@ -23,28 +27,57 @@
       --transition-fast: 0.25s ease;
     }
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       background: #000;
       color: var(--text-main);
-      margin: 0;
+      line-height: 1.6;
       overflow-x: hidden;
     }
 
-    /* Background using user's uploaded images */
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Wallpaper using your last two cheesesteak images */
     body::before {
       content: "";
       position: fixed;
       inset: 0;
       z-index: -3;
       background-image:
-        linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0.95)),
-        url("YOUR_UPLOADED_IMAGE_1.jpg"),
-        url("YOUR_UPLOADED_IMAGE_2.jpg");
-      background-size: cover;
-      background-position: center;
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.96)),
+        url("cheesesteak-wallpaper-1.jpg"),
+        url("cheesesteak-wallpaper-2.jpg");
+      /* Replace the two filenames above with your last two cheesesteak image files */
+      background-size: cover, cover, cover;
+      background-position: center, center top, center bottom;
       background-repeat: no-repeat;
-      filter: brightness(0.8) saturate(1.1);
+      filter: saturate(1.1) contrast(1.05);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background-image:
+        radial-gradient(circle at 10% 0%, rgba(212, 175, 55, 0.18) 0, transparent 55%),
+        radial-gradient(circle at 90% 100%, rgba(135, 206, 250, 0.18) 0, transparent 55%);
+      mix-blend-mode: screen;
+      pointer-events: none;
     }
 
     .page-shell {
@@ -55,43 +88,118 @@
 
     header {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      gap: 24px;
       padding: 14px 22px;
       margin-bottom: 26px;
       border-radius: 999px;
-      border: var(--border-gold);
-      background: rgba(5, 6, 8, 0.92);
+      border: 1px solid rgba(212, 175, 55, 0.5);
+      background: radial-gradient(circle at top left, rgba(212, 175, 55, 0.16), transparent 55%),
+                  rgba(5, 6, 8, 0.92);
       backdrop-filter: blur(18px);
-      box-shadow: var(--shadow-strong);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.75);
       position: sticky;
       top: 16px;
       z-index: 20;
     }
 
-    nav a {
-      margin-left: 18px;
-      color: var(--gold-soft);
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-logo {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid rgba(212, 175, 55, 0.8);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      background: #111;
+    }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-name {
+      font-family: 'Poiret One', system-ui, sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
+      color: var(--gold-soft);
+    }
+
+    .brand-tagline {
+      font-family: 'Cormorant Garamond', serif;
       font-size: 0.9rem;
-      text-decoration: none;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 0.9rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    nav a {
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold), var(--accent-blue));
+      transition: width var(--transition-fast);
+    }
+
+    nav a:hover::after {
+      width: 100%;
     }
 
     .primary-cta {
       padding: 9px 18px;
       border-radius: 999px;
-      border: 1px solid var(--gold);
-      background: rgba(212,175,55,0.15);
+      border: 1px solid rgba(212, 175, 55, 0.9);
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.16), rgba(212, 175, 55, 0.02));
       color: var(--gold-soft);
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       cursor: pointer;
+      transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
     }
 
-    /* HERO */
+    .primary-cta:hover {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.32), rgba(212, 175, 55, 0.08));
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9);
+    }
+
     .hero {
       display: grid;
-      grid-template-columns: 1.4fr 1fr;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
       gap: 32px;
       margin-top: 32px;
       margin-bottom: 40px;
@@ -99,16 +207,29 @@
     }
 
     .hero-copy {
-      background: rgba(5,6,10,0.92);
-      padding: 26px;
+      padding: 26px 26px 28px;
       border-radius: var(--radius-lg);
       border: var(--border-gold);
+      background: radial-gradient(circle at top left, rgba(212, 175, 55, 0.18), transparent 60%),
+                  rgba(5, 6, 10, 0.96);
       box-shadow: var(--shadow-strong);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-kicker {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      margin-bottom: 10px;
     }
 
     .hero-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: 2.6rem;
+      line-height: 1.1;
       text-transform: uppercase;
       letter-spacing: 0.18em;
       margin-bottom: 14px;
@@ -119,199 +240,843 @@
     }
 
     .hero-subtitle {
+      font-size: 0.98rem;
       color: var(--text-muted);
+      max-width: 520px;
       margin-bottom: 18px;
     }
 
-    .hero-visual img {
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .hero-badge {
+      border-radius: 999px;
+      border: 1px solid rgba(212, 175, 55, 0.6);
+      padding: 6px 12px;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      background: rgba(5, 6, 10, 0.9);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .hero-secondary {
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 2px;
+      transition: border-color var(--transition-fast), color var(--transition-fast);
+    }
+
+    .hero-secondary:hover {
+      border-color: rgba(212, 175, 55, 0.7);
+      color: var(--gold-soft);
+    }
+
+    .hero-visual {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(135, 206, 250, 0.4);
+      background: radial-gradient(circle at top, rgba(135, 206, 250, 0.18), transparent 60%),
+                  rgba(5, 6, 12, 0.96);
+      box-shadow: var(--shadow-strong);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-visual-main {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+    }
+
+    .hero-visual-main img {
       width: 100%;
       height: 260px;
       object-fit: cover;
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(255,255,255,0.2);
-      box-shadow: var(--shadow-strong);
+      filter: saturate(1.15) contrast(1.05);
+      transform: scale(1.02);
     }
 
-    /* MENU */
+    .hero-visual-tag {
+      position: absolute;
+      left: 14px;
+      top: 14px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(5, 6, 10, 0.85);
+      border: 1px solid rgba(212, 175, 55, 0.8);
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+    }
+
+    .hero-visual-ribbon {
+      position: absolute;
+      right: 14px;
+      bottom: 14px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(5, 6, 10, 0.9);
+      border: 1px solid rgba(135, 206, 250, 0.8);
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #e0f4ff;
+    }
+
+    .hero-visual-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .hero-visual-chip {
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(5, 6, 10, 0.9);
+      text-align: center;
+      color: var(--text-muted);
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+    }
+
+    .section-subtitle {
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 22px;
+    }
+
     .menu-card {
-      background: rgba(5,6,10,0.92);
       border-radius: var(--radius-lg);
       border: var(--border-gold);
-      padding: 20px;
-      margin-bottom: 20px;
+      background: rgba(5, 6, 10, 0.96);
       box-shadow: var(--shadow-strong);
+      padding: 20px 22px 22px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .menu-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .menu-card-title-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
     }
 
     .menu-card-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem;
-      color: var(--gold-soft);
-      text-transform: uppercase;
+      font-size: 1.3rem;
       letter-spacing: 0.18em;
+      text-transform: uppercase;
     }
 
-    .menu-price {
-      float: right;
-      font-family: 'Poiret One';
-      font-size: 1.2rem;
+    .menu-card-price {
+      font-family: 'Poiret One', system-ui, sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
       color: var(--gold-soft);
     }
 
-    .menu-list li {
-      margin-bottom: 6px;
+    .menu-card-body {
+      font-size: 0.9rem;
       color: var(--text-muted);
     }
 
-    /* ORDER */
-    .order-section {
-      background: rgba(5,6,10,0.92);
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(135,206,250,0.5);
-      padding: 20px;
-      box-shadow: var(--shadow-strong);
+    .menu-list {
+      list-style: none;
+      margin-top: 8px;
     }
 
-    .stripe-button {
-      display: inline-block;
-      padding: 12px 20px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #635bff, #00d4ff);
-      color: #fff;
-      text-transform: uppercase;
+    .menu-list li {
+      margin-bottom: 4px;
+    }
+
+    .menu-pill-label {
+      font-size: 0.75rem;
       letter-spacing: 0.18em;
-      text-decoration: none;
-      font-size: 0.9rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 10px;
+      margin-bottom: 4px;
+    }
+
+    .menu-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .menu-pill {
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(5, 6, 10, 0.9);
+      color: var(--text-muted);
+    }
+
+    .menu-specialties {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 14px;
       margin-top: 10px;
     }
 
-    /* MAPS */
-    .map-frame {
-      width: 100%;
-      height: 300px;
-      border: none;
+    .menu-specialty-item {
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      padding: 10px 12px;
+      background: rgba(5, 6, 10, 0.9);
+    }
+
+    .menu-specialty-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .menu-specialty-name {
+      font-size: 0.95rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+    }
+
+    .menu-specialty-flag {
+      font-size: 0.9rem;
+    }
+
+    .menu-specialty-body {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .menu-sides-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .menu-side-item {
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      padding: 10px 10px 12px;
+      background: rgba(5, 6, 10, 0.9);
+      text-align: center;
+    }
+
+    .menu-side-name {
+      font-size: 0.85rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .menu-side-price {
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      margin-top: 4px;
+    }
+
+    .order-section {
       border-radius: var(--radius-lg);
-      margin-bottom: 20px;
+      border: 1px solid rgba(135, 206, 250, 0.5);
+      background: radial-gradient(circle at top, rgba(135, 206, 250, 0.18), transparent 60%),
+                  rgba(5, 6, 10, 0.96);
       box-shadow: var(--shadow-strong);
+      padding: 20px 22px 22px;
+    }
+
+    .order-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 18px;
+      align-items: center;
+    }
+
+    .order-items {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      font-size: 0.85rem;
+    }
+
+    .order-item {
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      padding: 10px 10px 12px;
+      background: rgba(5, 6, 10, 0.9);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .order-item-name {
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+
+    .order-item-price {
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+    }
+
+    .order-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+
+    .order-cta-block {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .order-cta-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .order-cta-sub {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .stripe-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #635bff, #00d4ff);
+      color: #ffffff;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9);
+      text-decoration: none;
+    }
+
+    .stripe-mark {
+      width: 18px;
+      height: 18px;
+      border-radius: 6px;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #635bff;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    .locations-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    .location-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(5, 6, 10, 0.96);
+      box-shadow: var(--shadow-strong);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .location-header {
+      padding: 12px 14px 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .location-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+    }
+
+    .location-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .location-map {
+      flex: 1;
+      min-height: 220px;
+      border: none;
+      width: 100%;
     }
 
     footer {
       margin-top: 40px;
       padding-top: 18px;
-      border-top: 1px solid rgba(255,255,255,0.16);
+      border-top: 1px solid rgba(255, 255, 255, 0.16);
+      font-size: 0.8rem;
       color: var(--text-muted);
-      text-align: center;
-      font-size: 0.9rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-line {
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .footer-badge {
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+    }
+
+    @media (max-width: 960px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        border-radius: 24px;
+      }
+
+      nav {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .menu-grid,
+      .order-grid,
+      .locations-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-shell {
+        padding-inline: 14px;
+      }
+
+      .hero-title {
+        font-size: 2.1rem;
+      }
+
+      .order-items {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      nav {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
     }
   </style>
 </head>
-
 <body>
   <div class="page-shell">
-
     <!-- HEADER -->
     <header>
-      <div class="brand">
-        <strong style="font-family:'Poiret One'; font-size:1.6rem; letter-spacing:0.22em; color:var(--gold-soft);">
-          A&A Cheesesteak Co.
-        </strong>
+      <div class="brand-lockup">
+        <div class="brand-logo">
+          <!-- Replace with your logo file from the illustrated logo image -->
+          <img src="aa-cheesesteak-logo.png" alt="A&A Cheesesteak Co. Logo" />
+        </div>
+        <div class="brand-text">
+          <div class="brand-name">A&amp;A Cheesesteak Co.</div>
+          <div class="brand-tagline">Real Deal Authentic • Philly Roots • No Shortcuts</div>
+        </div>
       </div>
       <nav>
         <a href="#menu">Menu</a>
         <a href="#order">Order</a>
         <a href="#maps">Maps</a>
-        <button class="primary-cta" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">Order Now</button>
+        <button class="primary-cta" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">
+          Order Now
+        </button>
       </nav>
     </header>
 
     <!-- HERO -->
-    <section class="hero">
-      <div class="hero-copy">
-        <h1 class="hero-title">
-          Real <span>Philly</span> Flavor<br>Now in Ogden.
-        </h1>
-        <p class="hero-subtitle">
-          Born and raised in the Philadelphia region — now bringing the REAL DEAL cheesesteak tradition to Ogden & Weber County.  
-          Delivery & pickup only. Food truck coming soon.
-        </p>
-        <button class="primary-cta" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">View Menu</button>
-      </div>
+    <main>
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <div class="hero-kicker">Real Deal Authentic • Philly Roots • No Shortcuts</div>
+          <h1 class="hero-title">
+            The <span>Cheesesteak</span> You Remember<br />
+            From Philly &amp; The Shore.
+          </h1>
+          <p class="hero-subtitle">
+            Thinly sliced ribeye, cooked in beef tallow, layered with real cheese and caramelized onions—no shortcuts, no gimmicks, just the way it’s supposed to be. Philly soul, Jersey Shore energy, now on your screen.
+          </p>
+          <div class="hero-badges">
+            <div class="hero-badge">Thinly Sliced Ribeye</div>
+            <div class="hero-badge">Beef Tallow Cooked</div>
+            <div class="hero-badge">Art Deco Philly Vibes</div>
+          </div>
+          <div class="hero-actions">
+            <button class="primary-cta" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">
+              View Full Menu
+            </button>
+            <button class="hero-secondary" onclick="document.getElementById('maps').scrollIntoView({behavior:'smooth'})">
+              See Philly &amp; Ogden Maps
+            </button>
+          </div>
+        </div>
 
-      <div class="hero-visual">
-        <img src="YOUR_UPLOADED_IMAGE_2.jpg" alt="Authentic Philly Cheesesteak">
-      </div>
-    </section>
+        <aside class="hero-visual" aria-label="Cheesesteak and city imagery">
+          <div class="hero-visual-main">
+            <span class="hero-visual-tag">A&amp;A Cheesesteak Co.</span>
+            <span class="hero-visual-ribbon">Real Deal Authentic</span>
+            <!-- Use one of your cheesesteak close-up images here -->
+            <img src="cheesesteak-hero.jpg" alt="Authentic Philly cheesesteak close-up" />
+          </div>
+          <div class="hero-visual-strip">
+            <div class="hero-visual-chip">Philadelphia, PA</div>
+            <div class="hero-visual-chip">Ogden, UT</div>
+            <div class="hero-visual-chip">Jersey Shore Vibes</div>
+          </div>
+        </aside>
+      </section>
 
-    <!-- MENU -->
-    <section id="menu">
-      <div class="menu-card">
-        <h2 class="menu-card-title">Standard Cheesesteak <span class="menu-price">$12.99</span></h2>
-        <ul class="menu-list">
-          <li>Thinly sliced ribeye steak</li>
-          <li><em>Caramelized onions</em></li>
-          <li>Provolone cheese</li>
-          <li>Cooked in beef tallow</li>
-          <li>Salt, black pepper & garlic</li>
-        </ul>
-      </div>
+      <!-- MENU -->
+      <section id="menu">
+        <div class="section-header">
+          <h2 class="section-title">The Menu</h2>
+          <p class="section-subtitle">Standard • Specialty • Sides</p>
+        </div>
 
-      <div class="menu-card">
-        <h2 class="menu-card-title">Specialty Cheesesteaks <span class="menu-price">$14.99</span></h2>
-        <p style="color:var(--text-muted);">Italian-Style & Hoagie-Style</p>
-      </div>
+        <div class="menu-grid">
+          <!-- Standard Cheesesteak -->
+          <article class="menu-card">
+            <div class="menu-card-inner">
+              <div class="menu-card-title-row">
+                <h3 class="menu-card-title">Standard Cheesesteak</h3>
+                <div class="menu-card-price">$12.99</div>
+              </div>
+              <div class="menu-card-body">
+                <p>
+                  The foundation. The classic. Built exactly how a real cheesesteak should be.
+                </p>
+                <ul class="menu-list">
+                  <li>• Thinly sliced ribeye steak</li>
+                  <li>• <em>Caramelized onions</em></li>
+                  <li>• Provolone cheese</li>
+                  <li>• Cooked in beef tallow (fat)</li>
+                  <li>• Seasoned with salt, black pepper &amp; garlic</li>
+                </ul>
 
-      <div class="menu-card">
-        <h2 class="menu-card-title">Sides <span class="menu-price">$4.99</span></h2>
-        <ul class="menu-list">
-          <li>Mac & Cheese</li>
-          <li>Steak Fries</li>
-          <li>Cole Slaw</li>
-        </ul>
-      </div>
-    </section>
+                <div class="menu-pill-label">Add-Ons</div>
+                <div class="menu-pill-row">
+                  <span class="menu-pill">Lettuce</span>
+                  <span class="menu-pill">Spinach</span>
+                  <span class="menu-pill">Tomatoes</span>
+                  <span class="menu-pill">Jalapeños</span>
+                  <span class="menu-pill">Black Olives</span>
+                  <span class="menu-pill">Mushrooms</span>
+                  <span class="menu-pill">Arugula</span>
+                </div>
 
-    <!-- ORDER -->
-    <section id="order">
-      <div class="order-section">
-        <h2 style="font-family:'Cormorant Garamond'; text-transform:uppercase; letter-spacing:0.18em; color:var(--gold-soft);">
-          Order Online
-        </h2>
-        <p style="color:var(--text-muted);">Secure checkout via Stripe.</p>
+                <div class="menu-pill-label">Condiments</div>
+                <div class="menu-pill-row">
+                  <span class="menu-pill">Ketchup</span>
+                  <span class="menu-pill">Mustard</span>
+                  <span class="menu-pill">Mayonnaise</span>
+                  <span class="menu-pill">Fry Sauce</span>
+                  <span class="menu-pill">Marinara</span>
+                  <span class="menu-pill">Hot Honey</span>
+                  <span class="menu-pill">Thousand Island</span>
+                  <span class="menu-pill">Italian Dressing</span>
+                  <span class="menu-pill">Ranch</span>
+                </div>
 
-        <!-- REAL WORKING STRIPE PAYMENT LINK -->
-        <a class="stripe-button" href="https://buy.stripe.com/test_00g4iA2uP4zF4MUcMM" target="_blank">
-          Pay Securely with Stripe
-        </a>
+                <div class="menu-pill-label">Cheese Options</div>
+                <div class="menu-pill-row">
+                  <span class="menu-pill">Provolone</span>
+                  <span class="menu-pill">White American</span>
+                  <span class="menu-pill">Sharp White Cheddar</span>
+                  <span class="menu-pill">Special Cheez Wiz</span>
+                  <span class="menu-pill">Gouda</span>
+                </div>
+              </div>
+            </div>
+          </article>
 
-        <p style="margin-top:10px; color:var(--text-muted);">
-          Questions? Call <strong>(773) 677-0284</strong> or email  
-          <a href="mailto:adamwe12@yahoo.com" style="color:var(--gold-soft);">support@aacheessteaks.com</a>
-        </p>
-      </div>
-    </section>
+          <!-- Specialty + Sides -->
+          <article class="menu-card">
+            <div class="menu-card-inner">
+              <div class="menu-card-title-row">
+                <h3 class="menu-card-title">Specialty Cheesesteaks</h3>
+                <div class="menu-card-price">$14.99</div>
+              </div>
+              <div class="menu-card-body">
+                <p>
+                  Same authentic base, layered with bold builds that still respect the Philly rules.
+                </p>
 
-    <!-- MAPS -->
-    <section id="maps">
-      <h2 style="font-family:'Cormorant Garamond'; color:var(--gold-soft); text-transform:uppercase; letter-spacing:0.18em;">
-        Philadelphia & Ogden Maps
-      </h2>
+                <div class="menu-specialties">
+                  <!-- Italian-Style -->
+                  <div class="menu-specialty-item">
+                    <div class="menu-specialty-header">
+                      <div class="menu-specialty-name">Italian-Style Cheesesteak</div>
+                      <div class="menu-specialty-flag">🇮🇹</div>
+                    </div>
+                    <div class="menu-specialty-body">
+                      Marinara sauce, mozzarella, provolone, parmesan, pepperoni, and Italian seasonings over thinly sliced ribeye.
+                    </div>
+                  </div>
 
-      <!-- Philadelphia -->
-      <iframe class="map-frame"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12251.78093246844!2d-75.164!3d39.9526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6c62d0b2c4c0b%3A0x9f9d1f0f5b1c0!2sPhiladelphia%2C%20PA!5e0!3m2!1sen!2sus!4v1700000000000">
-      </iframe>
+                  <!-- Hoagie-Style -->
+                  <div class="menu-specialty-item">
+                    <div class="menu-specialty-header">
+                      <div class="menu-specialty-name">Hoagie-Style Cheesesteak</div>
+                      <div class="menu-specialty-flag">🇺🇸</div>
+                    </div>
+                    <div class="menu-specialty-body">
+                      Lettuce, spinach, tomatoes, black olives, provolone, white American, and your choice of dressing:
+                      Italian, Thousand Island, or balsamic vinaigrette.
+                    </div>
+                  </div>
+                </div>
 
-      <!-- Ogden -->
-      <iframe class="map-frame"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3109.651756437472!2d-111.9738304!3d41.223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87530f0b0f0f0f0f%3A0x9f9d1f0f5b1c0!2sOgden%2C%20UT!5e0!3m2!1sen!2sus!4v1700000000001">
-      </iframe>
-    </section>
+                <!-- Sides -->
+                <div class="menu-pill-label" style="margin-top:14px;">Sides • $4.99 Each</div>
+                <div class="menu-sides-grid">
+                  <div class="menu-side-item">
+                    <div class="menu-side-name">Mac &amp; Cheese</div>
+                    <div class="menu-side-price">$4.99</div>
+                  </div>
+                  <div class="menu-side-item">
+                    <div class="menu-side-name">Steak Fries</div>
+                    <div class="menu-side-price">$4.99</div>
+                  </div>
+                  <div class="menu-side-item">
+                    <div class="menu-side-name">Cole Slaw</div>
+                    <div class="menu-side-price">$4.99</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ORDER / STRIPE -->
+      <section id="order">
+        <div class="section-header">
+          <h2 class="section-title">Order Online</h2>
+          <p class="section-subtitle">Stripe Secure Checkout</p>
+        </div>
+
+        <div class="order-section">
+          <div class="order-grid">
+            <div>
+              <div class="order-items">
+                <div class="order-item">
+                  <div class="order-item-name">Standard Cheesesteak</div>
+                  <div class="order-item-price">$12.99</div>
+                  <div class="order-note">Thinly sliced ribeye, caramelized onions, cheese of your choice.</div>
+                </div>
+                <div class="order-item">
+                  <div class="order-item-name">Italian-Style Cheesesteak</div>
+                  <div class="order-item-price">$14.99</div>
+                  <div class="order-note">Marinara, mozzarella, provolone, parmesan, pepperoni, Italian seasonings.</div>
+                </div>
+                <div class="order-item">
+                  <div class="order-item-name">Hoagie-Style Cheesesteak</div>
+                  <div class="order-item-price">$14.99</div>
+                  <div class="order-note">Lettuce, spinach, tomatoes, black olives, cheese &amp; dressing.</div>
+                </div>
+                <div class="order-item">
+                  <div class="order-item-name">Mac &amp; Cheese</div>
+                  <div class="order-item-price">$4.99</div>
+                  <div class="order-note">Creamy, rich, and built to sit next to a cheesesteak.</div>
+                </div>
+                <div class="order-item">
+                  <div class="order-item-name">Steak Fries</div>
+                  <div class="order-item-price">$4.99</div>
+                  <div class="order-note">Thick-cut, crispy, perfect for dipping in fry sauce.</div>
+                </div>
+                <div class="order-item">
+                  <div class="order-item-name">Cole Slaw</div>
+                  <div class="order-item-price">$4.99</div>
+                  <div class="order-note">Bright, crunchy, and cuts through the richness just right.</div>
+                </div>
+              </div>
+              <p class="order-note">
+                Pricing matches the menu: Standard Cheesesteak $12.99, Specialty Cheesesteaks $14.99, all sides $4.99.
+              </p>
+            </div>
+
+            <div class="order-cta-block">
+              <div>
+                <div class="order-cta-title">Ready To Check Out?</div>
+                <p class="order-cta-sub">
+                  Tap below to jump to our secure Stripe checkout page and lock in your order.
+                </p>
+              </div>
+              <!-- Replace the href with your own live Stripe Payment Link when ready -->
+              <a
+                class="stripe-button"
+                href="https://buy.stripe.com/test_4gwcNw5ZP2rB7IcaEE"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="stripe-mark">S</span>
+                <span>Pay Securely With Stripe</span>
+              </a>
+              <p class="order-note">
+                This button uses a Stripe test checkout URL as a working example. Swap in your live Payment Link from your Stripe dashboard.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MAPS -->
+      <section id="maps">
+        <div class="section-header">
+          <h2 class="section-title">Maps</h2>
+          <p class="section-subtitle">Philadelphia, PA • Ogden, UT</p>
+        </div>
+
+        <div class="locations-grid">
+          <!-- Philadelphia Map -->
+          <article class="location-card">
+            <div class="location-header">
+              <div class="location-name">Philadelphia, Pennsylvania</div>
+              <div class="location-meta">Liberty Bell • Skyline • Roots</div>
+            </div>
+            <iframe
+              class="location-map"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12251.78093246844!2d-75.164!3d39.9526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6c62d0b2c4c0b%3A0x9f9d1f0f5b1c0!2sPhiladelphia%2C%20PA!5e0!3m2!1sen!2sus!4v1700000000000"
+              allowfullscreen
+            ></iframe>
+          </article>
+
+          <!-- Ogden Map -->
+          <article class="location-card">
+            <div class="location-header">
+              <div class="location-name">Ogden, Utah</div>
+              <div class="location-meta">Wasatch Front • New Home</div>
+            </div>
+            <iframe
+              class="location-map"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3109.651756437472!2d-111.9738304!3d41.223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87530f0b0f0f0f0f%3A0x9f9d1f0f5b1c0!2sOgden%2C%20UT!5e0!3m2!1sen!2sus!4v1700000000001"
+              allowfullscreen
+            ></iframe>
+          </article>
+        </div>
+      </section>
+    </main>
 
     <!-- FOOTER -->
     <footer>
-      A&A Cheesesteak Co. • Real Philly in Ogden • Delivery & Pickup Only • Food Truck Coming Soon
+      <div class="footer-line">
+        A&amp;A Cheesesteak Co. • Real Deal Authentic • Philly Roots • No Shortcuts
+      </div>
+      <div class="footer-badge">
+        Cheesesteaks • Philadelphia • Jersey Shore • Art Deco
+      </div>
     </footer>
-
   </div>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+      anchor.addEventListener('click', function (e) {
+        var targetId = this.getAttribute('href').substring(1);
+        var target = document.getElementById(targetId);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
 
