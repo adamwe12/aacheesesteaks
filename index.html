@@ -329,12 +329,21 @@
         </h2>
         <p style="color:var(--text-muted);">Delivery & Pickup Only • Secure Stripe Checkout</p>
 
-        <!-- LIVE STRIPE BUY BUTTON (NO TOTAL SHOWN) -->
-        <script async src="https://js.stripe.com/v3/buy-button.js"></script>
-        <stripe-buy-button
-          buy-button-id="buy_btn_1TJW6qBMYjj5IrfpAK3KvOA0"
-          publishable-key="pk_live_51TJ5XjBMYjj5IrfpxbGWRDpTvnReZ1nRWkLaGFX7FxM78iIBgyx68fyYJTVkHohY1VelmnppNTk0X9oyPfrPuPCW003RmCjV4f">
-        </stripe-buy-button>
+
+<!-- Stripe Pricing Table #1 -->
+<script async src="https://js.stripe.com/v3/pricing-table.js"></script>
+<stripe-pricing-table
+    pricing-table-id="prctbl_1TJncoBMYjj5IrfppiYD2pc0"
+    publishable-key="pk_live_51TJ5XjBMYjj5IrfpxbGWRDpTvnReZ1nRWkLaGFX7FxM78iIBgyx68fyYJTVkHohY1VelmnppNTk0X9oyPfrPuPCW003RmCjV4f">
+</stripe-pricing-table>
+
+<!-- Stripe Pricing Table #2 -->
+<script async src="https://js.stripe.com/v3/pricing-table.js"></script>
+<stripe-pricing-table
+    pricing-table-id="prctbl_1TJo09BMYjj5Irfp6wnhfzdC"
+    publishable-key="pk_live_51TJ5XjBMYjj5IrfpxbGWRDpTvnReZ1nRWkLaGFX7FxM78iIBgyx68fyYJTVkHohY1VelmnppNTk0X9oyPfrPuPCW003RmCjV4f">
+</stripe-pricing-table>
+
 
         <p style="margin-top:20px; color:var(--text-muted);">
           Questions? Call <strong>(773) 677-0284</strong> or email  
