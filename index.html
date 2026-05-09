@@ -331,31 +331,68 @@
         </h2>
         <p style="color:var(--text-muted);">Delivery & Pickup Only • Secure Stripe Checkout</p>
 
-<!-- Unified Stripe Checkout Link -->
-<a href="YOUR_STRIPE_PAYMENT_LINK_HERE"
-   class="order-btn"> ORDER YOUR CHEESESTEAKS AND SIDES
+<!-- Single ORDER NOW Button -->
+<button id="orderNowBtn" class="order-now-btn">
+  ORDER NOW
+</button>
 
-
-
-</a>
+<!-- Hidden Menu -->
+<div id="orderMenu" class="order-menu">
+  <a href="https://buy.stripe.com/dRmaEW0NleE15Iv6JM7Vm0d">Standard Steak</a>
+  <a href="https://buy.stripe.com/3cI5kC8fN53rfj5ece7Vm04">Italian Style Steak</a>
+  <a href="https://buy.stripe.com/8x2fZg3ZxdzXc6Tfgi7Vm06">Hoagie Style Steak</a>
+  <a href="https://buy.stripe.com/aFa3cu0Nl7bz4Erc467Vm07">Seasoned Steak Fries</a>
+  <a href="https://buy.stripe.com/aFa8wOfIf53rfj58RU7Vm05">Mac & Cheese</a>
+  <a href="https://buy.stripe.com/5kQ6oG0Nl9jHef19VY7Vm08">Cole Slaw</a>
+</div>
 
 <style>
-  .order-btn {
+  .order-now-btn {
     display: inline-block;
-    padding: 16px 28px;
+    padding: 18px 32px;
     background: #e31837; /* Philly red */
-    color: #ffffff;
-    font-size: 20px;
+    color: #fff;
+    font-size: 22px;
     font-weight: bold;
-    border-radius: 8px;
-    text-decoration: none;
-    text-align: center;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
     transition: background 0.2s ease-in-out;
   }
-  .order-btn:hover {
+
+  .order-now-btn:hover {
     background: #b5122c;
   }
+
+  .order-menu {
+    display: none;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .order-menu a {
+    display: block;
+    padding: 12px;
+    margin: 8px 0;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 18px;
+  }
+
+  .order-menu a:hover {
+    background: #333;
+  }
 </style>
+
+<script>
+  document.getElementById("orderNowBtn").onclick = function () {
+    const menu = document.getElementById("orderMenu");
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+  };
+</script>
+
 
 
         <p style="margin-top:20px; color:var(--text-muted);">
